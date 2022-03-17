@@ -33,3 +33,10 @@ test ("can find a store", async () => {
     await hm.clickSuggestion();
     expect (await hm.getStoreResults()).toContain("Hayward")
 })
+test ("can use menu categories", async () => {
+    await hm.navigate();
+    await hm.clickSale();
+    await hm.clickWomen();
+    await hm.clickViewAll();
+    expect (await hm.getHeaderResults()).toContain("WOMEN'S SALE")
+})

@@ -17,6 +17,10 @@ export class HM extends BasePage {
     storeInput: By = By.xpath('//input[@class="BaseInput-module--input__1c5qD Input-module--inputIcon__2_3-Y"]');
     storeResults: By = By.xpath('//li[@id="store-list-US0623"]');
     citySuggestion: By = By.xpath('//button[@class="SuggestionItem-module--suggestion__1qGnH SuggestionItem-module--active__39wqi"]');
+    saleCategory: By = By.xpath('//a[@href="/en_us/sale.html"]');
+    womenCategory: By = By.xpath('//strong[@aria-controls="expandable-0"]');
+    viewAll: By = By.xpath('//a[@class="link "]');
+    pageHeading: By = By.xpath('//h1[@class="heading "]');
 
     constructor () {
         super({url: "https://www2.hm.com/en_us/index.html"});
@@ -65,5 +69,17 @@ export class HM extends BasePage {
     }
     async clickSuggestion () {
         return this.click(this.citySuggestion)
+    }
+    async clickSale () {
+        return this.click(this.saleCategory)
+    }
+    async clickWomen () {
+        return this.click(this.womenCategory)
+    }
+    async clickViewAll() {
+        return this.click(this.viewAll)
+    }
+    async getHeaderResults () {
+        return this.getText(this.pageHeading)
     }
 }

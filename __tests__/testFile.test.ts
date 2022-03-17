@@ -5,7 +5,7 @@ const hm = new HM;
 
 afterAll(async () => {
     await hm.driver.quit();
-});   
+});  
 test ("can do a search", async () => {
     await hm.navigate();
     await hm.search("beanie");
@@ -20,4 +20,16 @@ test ("can add a product to bag", async () => {
     await hm.clickAddToBag();
     await hm.openBag();
     expect (await hm.bagResults()).toContain("Hat")
+})
+test ("can access checkout page", async () => {
+    await hm.clickCheckout();
+    await hm.clickContinueAsGuest();
+    expect (await hm.getCheckoutResults()).toContain("1")
+})
+test ("can find a store", async () => {
+    await hm.navigate();
+    await hm.clickFindStore();
+    await hm.storeSearch(94544);
+    await hm.clickSuggestion();
+    expect (await hm.getStoreResults()).toContain("Hayward")
 })

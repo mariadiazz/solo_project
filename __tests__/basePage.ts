@@ -45,4 +45,3 @@ export class BasePage {
         return(await this.getElement(elementBy)).getAttribute(attribute)
     }
 }
-//.//

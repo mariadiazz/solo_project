@@ -21,6 +21,7 @@ export class HM extends BasePage {
     womenCategory: By = By.xpath('//strong[@aria-controls="expandable-0"]');
     viewAll: By = By.xpath('//a[@class="link "]');
     pageHeading: By = By.xpath('//h1[@class="heading "]');
+    cookiesPopup: By = By.xpath('//button[@id="onetrust-accept-btn-handler"]');
 
     constructor () {
         super({url: "https://www2.hm.com/en_us/index.html"});
@@ -81,5 +82,8 @@ export class HM extends BasePage {
     }
     async getHeaderResults () {
         return this.getText(this.pageHeading)
+    }
+    async acceptCookies () {
+        return this.click(this.cookiesPopup)
     }
 }

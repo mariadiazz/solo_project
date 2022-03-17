@@ -8,6 +8,7 @@ afterAll(async () => {
 });  
 test ("can do a search", async () => {
     await hm.navigate();
+    await hm.acceptCookies();
     await hm.search("beanie");
     expect (await hm.getSearchResults()).toContain("Hat")
 })

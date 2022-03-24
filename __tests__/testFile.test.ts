@@ -22,7 +22,7 @@ test ("can add a product to bag", async () => {
     await hm.openBag();
     expect (await hm.bagResults()).toContain("Hat")
 })
-test ("can access checkout page", async () => {
+test ("can open checkout page", async () => {
     await hm.clickCheckout();
     await hm.clickContinueAsGuest();
     expect (await hm.getCheckoutResults()).toContain("1")
